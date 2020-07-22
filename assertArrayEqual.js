@@ -1,3 +1,10 @@
+// Main code
+const assertArraysEqual = (arr1, arr2, evaluator) => {
+  return evaluator(arr1, arr2) ? console.log(`✅ It's an exact match! ${arr1} === ${arr2}`) : console.log(`❌ No they are not the same! ${arr1} !== ${arr2}`);
+};
+
+
+// Assertion code / Reference code
 const eqArrays = (array1, array2) => {
   if (array1.length !== array2.length) {
     return false;
@@ -10,9 +17,6 @@ const eqArrays = (array1, array2) => {
   return true;
 };
 
-const assertArraysEqual = (arr1, arr2, evaluator) => {
-  return evaluator(arr1, arr2) ? console.log(`✅ It's an exact match! ${arr1} === ${arr2}`) : console.log(`❌ No they are not the same! ${arr1} !== ${arr2}`);
-};
 
 assertArraysEqual([1, 2, 3], [1, 2, 3], eqArrays);
 assertArraysEqual(["1", "2", 3], [1, "2", "3"], eqArrays);
