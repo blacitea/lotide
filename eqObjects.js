@@ -20,10 +20,24 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// Code for testing
+const eqArrays = (array1, array2) => {
+  if (array1.length !== array2.length) {
+    return false;
+  }
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i] !== array2[i]) {
+      return false;
+    }
+  }
+  return true;
+};
+
+// Code for testing primitives as value
+/*
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
 const abc = { a: "1", b: "2", c: "3" };
+const def = { a: "1", e: "2", c: "3" };
 
 assertEqual(ab["a"], ba["a"]); // eval true
 assertEqual(ab["b"], ba["a"]); // eval false
@@ -31,3 +45,14 @@ assertEqual(ab["b"], ba["a"]); // eval false
 assertEqual(eqObjects(ab, ba), true); // => should match, eval true
 assertEqual(eqObjects(ba, abc), true); // => should NOT match, eval false
 assertEqual(eqObjects(ab, abc), false); // => should Not match, eval true
+assertEqual(eqObjects(def, abc), false); // => should Not match, eval true
+*/
+// Code for testing array as value
+const cd = { c: "1", d: ["2", 3] };
+const dc = { d: ["2", 3], c: "1" };
+eqObjects(cd, dc); // => true
+assertEqual(eqObjects(cd, dc), true);
+
+const cd2 = { c: "1", d: ["2", 3, 4] };
+eqObjects(cd, cd2); // => false
+assertEqual(eqObjects(cd, cd2), false); // => false
