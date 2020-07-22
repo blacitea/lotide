@@ -4,8 +4,14 @@ const eqObjects = function(obj1, obj2) {
     return false;
   }
   for (let key in obj1) {
-    if (obj1[key] !== obj2[key]) {
-      return false;
+    if (obj1[key] instanceof Array) { // alt: if(Array.isArray(obj1[key]))
+      if (!eqArrays(obj1[key], obj2[key])) {
+        return false;
+      }
+    } else {
+      if (obj1[key] !== obj2[key]) {
+        return false;
+      }
     }
   }
   return true;
@@ -56,3 +62,7 @@ assertEqual(eqObjects(cd, dc), true);
 const cd2 = { c: "1", d: ["2", 3, 4] };
 eqObjects(cd, cd2); // => false
 assertEqual(eqObjects(cd, cd2), false); // => false
+
+const cd3 = { c: "1", d: ["2", 3, 4] };
+eqObjects(cd3, cd2); // => true
+assertEqual(eqObjects(cd3, cd2), true); // => true
