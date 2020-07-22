@@ -18,8 +18,9 @@ const flatten = nestedArray => {
   let array = [];
   for (let element of nestedArray) {
     if (Array.isArray(element)) {
-      //array.push(...element);
-      for (let item of element) {
+      let flattenArray = flatten(element);
+      //array.push(...element); spread - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+      for (let item of flattenArray) {
         array.push(item);
       }
     } else {
@@ -30,7 +31,7 @@ const flatten = nestedArray => {
 };
 
 let bagOfCandies = [1, 2, [3, 4], 5, [6]];
-let angelsCandies = [1, [2, 7], [3, 4], 5, [6]];
+let angelsCandies = [1, [2, 7, [10, 9]], [3, 4], 5, [6]];
 
 assertArraysEqual(flatten(bagOfCandies), [1, 2, 3, 4, 5, 6], eqArrays);
-assertArraysEqual(flatten(angelsCandies), [1, 2, 7, 3, 4, 5, 6], eqArrays);
+assertArraysEqual(flatten(angelsCandies), [1, 2, 7, 10, 9, 3, 4, 5, 6], eqArrays);
