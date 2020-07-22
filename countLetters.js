@@ -5,3 +5,8 @@ const assertEqual = function(actual, expected) {
     console.log(`❌: [${actual}] !== [${expected}]`);
   }
 };
+
+// Code for countLetter
+const countLetter = function(string) {
+
+}
