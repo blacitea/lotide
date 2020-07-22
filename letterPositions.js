@@ -1,10 +1,33 @@
 // Main code
-const letterPositions = function (sentence) {
-  const result = {};
 
+const letterPositions = function(sentence) {
+  const result = {};
+  const letters = sentence.toLowerCase().split("");
+  for (let i = 0; i < letters.length; i++) {
+    if (letters[i] !== " ") {
+      if (result[letters[i]]) {
+        result[letters[i]].push(i);
+      } else {
+        result[letters[i]] = [i];
+      }
+    }
+  }
   return result;
 };
 
+// Question to ask
+/*
+const letterPositions = function(sentence) {
+  const result = {};
+  const letters = sentence.toLowerCase().split("");
+  for (let i = 0; i < letters.length; i++) {
+    if (letters[i] !== " ") {
+      result[letters[i]] ? result[letters[i]].push(i) : result[letters[i]] = [i];
+    }
+  }
+  return result;
+};
+*/
 
 // Assertion code
 const eqArrays = (array1, array2) => {
@@ -27,6 +50,7 @@ const assertArraysEqual = (arr1, arr2, evaluator) => {
 
 let testSentence = "hello";
 let toTest = letterPositions(testSentence);
+console.log(toTest);
 assertArraysEqual(toTest["h"], [0], eqArrays);
 assertArraysEqual(toTest["e"], [1], eqArrays);
 assertArraysEqual(toTest["l"], [2, 3], eqArrays);
