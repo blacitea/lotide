@@ -1,16 +1,15 @@
 // Main code
-const eqObject = function (obj1, obj2) {
-
+const eqObjects = function(obj1, obj2) {
+  if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+    return false;
+  }
+  for (let key in obj1) {
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+  }
+  return true;
 };
-
-
-
-
-
-
-
-
-
 
 // Code for assertion
 const assertEqual = function(actual, expected) {
@@ -24,10 +23,11 @@ const assertEqual = function(actual, expected) {
 // Code for testing
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
-assertEqual(ab["a"], ba["a"]);
-assertEqual(ab["b"], ba["a"]);
-
-eqObjects(ab, ba); // => true
-
 const abc = { a: "1", b: "2", c: "3" };
-eqObjects(ab, abc); // => false
+
+assertEqual(ab["a"], ba["a"]); // eval true
+assertEqual(ab["b"], ba["a"]); // eval false
+
+assertEqual(eqObjects(ab, ba), true); // => should match, eval true
+assertEqual(eqObjects(ba, abc), true); // => should NOT match, eval false
+assertEqual(eqObjects(ab, abc), false); // => should Not match, eval true
