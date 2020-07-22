@@ -7,6 +7,14 @@ const assertEqual = function(actual, expected) {
 };
 
 // Code for countLetter
-const countLetter = function(string) {
+const countLetter = function (string) {
+  let result = {};
+  return result;
+};
 
-}
+
+
+// Code for testing
+let toTest = "LHL";
+assertEqual(countLetter(toTest)["L"], 2);
+assertEqual(countLetter(toTest)["H"], 1);
