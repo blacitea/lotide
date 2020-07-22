@@ -1,11 +1,3 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅: [${actual}] === [${expected}]`);
-  } else {
-    console.log(`❌: [${actual}] !== [${expected}]`);
-  }
-};
-
 const eqArrays = (array1, array2) => {
   if (array1.length !== array2.length) {
     return false;
@@ -15,7 +7,11 @@ const eqArrays = (array1, array2) => {
       return false;
     }
   }
-  return true;
+  return eqArrays;
+};
+
+const assertArraysEqual = (arr1, arr2, evaluator) => {
+  return evaluator(arr1, arr2) ? console.log(`✅ It's an exact match!`) : console.log(`❌ No they are not the same`);
 };
 
 /*
@@ -36,11 +32,12 @@ const without = (items, exceptions) => {
   }
   return ret;
 };
-assertEqual(eqArrays(without([1, 2, 3], [1]), [2, 3]), true);
-assertEqual(eqArrays(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]), true);
-assertEqual(eqArrays(without(["1", 1, "Lighthouse"], [1, "Lighthouse"]), ["1"]), true);
+assertArraysEqual(without([1, "2", 3], [1]), [2, 3], eqArrays);
+assertArraysEqual(without([1, 2, 3], [1]), [2, 3], eqArrays);
+assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"], eqArrays);
+assertArraysEqual(without(["1", 1, "Lighthouse"], ["Lighthouse"]), ["1"], eqArrays);
 
 const words = ["hello", "world", "lighthouse"];
 without(words, ["lighthouse"]);
-assertEqual(eqArrays(without(words, ["lighthouse"]), ["hello", "world"]), true);
-assertEqual(eqArrays(words, ["hello", "world", "lighthouse"]),true);
+assertArraysEqual(without(words, ["lighthouse"]), ["hello", "world"], eqArrays);
+assertArraysEqual(words, ["hello", "world", "lighthouse"],eqArrays);
