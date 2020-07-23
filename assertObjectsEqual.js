@@ -1,9 +1,9 @@
 // Main code
-const assertObjectsEqual = function (actual, expected) {
+const assertObjectsEqual = function(actual, expected) {
   if (eqObjects(actual, expected)) {
-    console.log(`✅ You got it!, ` + actual + " === " + expected);
+    console.log(`✅ You got it!`, actual, " === ", expected);
   } else {
-    console.log(`❌ That's not right! ${actual} !== ${expected}`);
+    console.log(`❌ That's not right!`, actual, " !== ", expected);
   }
 };
 
@@ -51,5 +51,6 @@ let dog7 = { name: "Blizz", quickFact: { favFood: "Fish skin jerky", age: 7, gen
 assertObjectsEqual(dog1, dog2); // true
 assertObjectsEqual(dog2, dogfake); // false
 assertObjectsEqual(dog3, dog4); // false
+assertObjectsEqual(dog4, dog4); // true
 //assertObjectsEqual(dog5, dog6); // true - not working because eqObjects is not ready for nested object yet
 //assertObjectsEqual(dog5, dog7); // false - not working because eqObjects is not ready for nested object yet

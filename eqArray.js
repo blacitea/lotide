@@ -15,7 +15,7 @@ const eqArrays = (array1, array2) => {
 };
 
 // Assertion code/ Reference code
-const assertEqual = function (actual, expected) {
+const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅: [${actual}] === [${expected}]`);
   } else {
