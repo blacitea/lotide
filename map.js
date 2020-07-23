@@ -34,4 +34,15 @@ console.log(result1);
 const result2 = map(words, word => word.length);
 assertArraysEqual(result2, [6, 7, 2, 5, 3], eqArrays);
 
+const iceCreams = [
+  { flavor: "Chocolate", price: 2.5 },
+  { flavor: "Mint chips", price: 2 },
+  { flavor: "Rocky Road", price: 3 }
+];
+const result3 = map(iceCreams, iceCream => `${iceCream.flavor} flavor ice-cream is ${iceCream.price}!`);
+assertArraysEqual(result3, ["Chocolate flavor ice-cream is 2.5!"], eqArrays);
+
+const result4 = map(result2, result => result *= 10);
+assertArraysEqual(result4, [60, 70, 20, 50, 30], eqArrays);
+
 
