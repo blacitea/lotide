@@ -19,7 +19,7 @@ const eqArrays = function(array1, array2) {
 
 // Main code
 const words = ["ground", "control", "to", "major", "tom"];
-const map = function (array, callback) {
+const map = function(array, callback) {
   const results = [];
   for (let element of array) {
     results.push(callback(element));
