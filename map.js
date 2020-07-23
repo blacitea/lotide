@@ -5,6 +5,8 @@ const map = function (array, callback) {
   // console.log('callback function', callback);
   for (let element of array) {
     console.log(element);
+    console.log(callback(element));
+    console.log("----");
   }
 
   const results = [];
