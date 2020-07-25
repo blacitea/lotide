@@ -1,16 +1,14 @@
 // Main code
 const eqObjects = function(obj1, obj2) {
-  // console.log("we have Object1", obj1, "and Object2", obj2);
   if (Object.keys(obj1).length !== Object.keys(obj2).length) {
     return false;
   }
   for (let key in obj1) {
-    // console.log("when we try to loop obj1, key is", key, "obj1[key] is", obj1[key], "is it an object?", obj1[key] instanceof Object)
     if (obj1[key] instanceof Object) {
       if (!eqObjects(obj1[key], obj2[key])) {
         return false;
       }
-    } else if (obj1[key] instanceof Array) { // alt: if(Array.isArray(obj1[key]))
+    } else if (Array.isArray(obj1[key])) {
       if (!eqArrays(obj1[key], obj2[key])) {
         return false;
       }
