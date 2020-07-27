@@ -15,18 +15,3 @@ const eqArrays = (array1, array2) => {
 };
 
 module.exports = eqArrays;
-
-// // Assertion code/ Reference code
-// const assertEqual = function(actual, expected) {
-//   if (actual === expected) {
-//     console.log(`✅: [${actual}] === [${expected}]`);
-//   } else {
-//     console.log(`❌: [${actual}] !== [${expected}]`);
-//   }
-// };
-
-
-// assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
-// assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false);
-// assertEqual(eqArrays(["1", "2", 3], ["1", "2", 3]), true);
-// assertEqual(eqArrays([1, 2, "3"], [1, 2, 3]), false);
