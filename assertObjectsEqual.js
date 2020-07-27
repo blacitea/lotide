@@ -41,18 +41,18 @@ const eqArrays = (array1, array2) => {
 };
 
 // Test code
-let dog1 = { name: "Stormy", owner: ["Peter", "Vennsa"] };
-let dog2 = { name: "Stormy", owner: ["Peter", "Vennsa"] };
-let dogfake = { name: "Stormy", owner: ["Peter", "Vennsa", "Mike"] };
-let dog3 = { name: "Stormy", favFood: "Fish skin jerky", age: 5 };
-let dog4 = { name: "Blizz", favFood: "Fish skin jerky", age: 7 };
-let dog5 = { name: "Blizz", quickFact: { favFood: "Fish skin jerky", age: 7 } };
-let dog6 = { name: "Blizz", quickFact: { favFood: "Fish skin jerky", age: 7 } };
-let dog7 = { name: "Blizz", quickFact: { favFood: "Fish skin jerky", age: 7, gender: "female" } };
+// let dog1 = { name: "Stormy", owner: ["Peter", "Vennsa"] };
+// let dog2 = { name: "Stormy", owner: ["Peter", "Vennsa"] };
+// let dogfake = { name: "Stormy", owner: ["Peter", "Vennsa", "Mike"] };
+// let dog3 = { name: "Stormy", favFood: "Fish skin jerky", age: 5 };
+// let dog4 = { name: "Blizz", favFood: "Fish skin jerky", age: 7 };
+// let dog5 = { name: "Blizz", quickFact: { favFood: "Fish skin jerky", age: 7 } };
+// let dog6 = { name: "Blizz", quickFact: { favFood: "Fish skin jerky", age: 7 } };
+// let dog7 = { name: "Blizz", quickFact: { favFood: "Fish skin jerky", age: 7, gender: "female" } };
 
-assertObjectsEqual(dog1, dog2); // true
-assertObjectsEqual(dog2, dogfake); // false
-assertObjectsEqual(dog3, dog4); // false
-assertObjectsEqual(dog4, dog4); // true
+// assertObjectsEqual(dog1, dog2); // true
+// assertObjectsEqual(dog2, dogfake); // false
+// assertObjectsEqual(dog3, dog4); // false
+// assertObjectsEqual(dog4, dog4); // true
 //assertObjectsEqual(dog5, dog6); // true - not working because eqObjects is not ready for nested object yet
 //assertObjectsEqual(dog5, dog7); // false - not working because eqObjects is not ready for nested object yet
