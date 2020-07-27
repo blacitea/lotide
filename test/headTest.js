@@ -1,10 +1,21 @@
+const chai = require("chai");
+const assert = chai.assert;
 const head = require("../head");
-const assertEqual = require("../assertEqual");
 
-assertEqual(head([1, 2, 4, 5]), 1);
-assertEqual(head([1, 2, 4, 5]), "1");
-assertEqual(head([1, 2, 4, 5]), 5);
-assertEqual(head(["a", "e", "i", "o", "u"]), "h");
-assertEqual(head(["a", "e", "i", "o", "u"]), "a");
-assertEqual(head(["hot cocoa"]), "hot cocoa");
-assertEqual(head([ ]), undefined);
+describe("#head", () => {
+  it("return 1 for [1, 2, 3]", () => {
+    assert.strictEqual(head([1, 2, 3]), 1);
+  });
+  it("returns 5 for ['5']", () => {
+    assert.strictEqual(head(['5']), '5');
+  });
+  it("returns a for ['a', 'e', 'i', 'o', 'u']", () => {
+    assert.strictEqual(head(['a', 'e', 'i', 'o', 'u']), 'a');
+  });
+  it("returns hot cocoa for ['hot cocoa']", () => {
+    assert.strictEqual(head(['hot cocoa']), 'hot cocoa');
+  });
+  it("returns undefined for [empty array]", () => {
+    assert.strictEqual(head([]), undefined);
+  });
+});
